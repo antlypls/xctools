@@ -1,4 +1,4 @@
-require "xctools/version"
+require 'xctools/version'
 
 module Xctools
   # Your code goes here...
