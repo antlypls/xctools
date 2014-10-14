@@ -1,5 +1,8 @@
 # XcTools
 
+[![Code Climate](http://img.shields.io/codeclimate/github/antlypls/xctools.svg?style=flat)](https://codeclimate.com/github/antlypls/xctools)
+[![Build Status](http://img.shields.io/travis/antlypls/xctools.svg?style=flat)](https://travis-ci.org/antlypls/xctools)
+
 Collection of helpers for parsing Xcode CLI tools output.
 
 This is an extract from [ognivo gem](https://github.com/antlypls/ognivo).
