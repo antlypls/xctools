@@ -1,5 +1,5 @@
 require 'xctools/version'
+require 'xctools/agvtool'
 
 module XcTools
-  # Your code goes here...
 end
