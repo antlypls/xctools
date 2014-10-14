@@ -5,7 +5,7 @@ require 'xctools/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'xctools'
-  spec.version       = Xctools::VERSION
+  spec.version       = XcTools::VERSION
   spec.authors       = ['Anatoliy Plastinin']
   spec.email         = ['hello@antlypls.com']
   spec.summary       = 'TODO: Write a short summary. Required.'

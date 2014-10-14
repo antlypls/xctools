@@ -1,5 +1,5 @@
 require 'xctools/version'
 
-module Xctools
+module XcTools
   # Your code goes here...
 end
