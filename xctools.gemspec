@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['hello@antlypls.com']
   spec.summary       = 'Helpers for parsing Xcode CLI tools output.'
   spec.description   = 'Helpers for parsing Xcode CLI tools output.'
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/antlypls/xctools'
   spec.license       = 'MIT'
 
   spec.files         = %w(README.md LICENSE)
