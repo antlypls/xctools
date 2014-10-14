@@ -30,7 +30,7 @@ describe XcTools::XcodeBuild do
       before(:example) do
         expect(described_class)
           .to receive(:`)
-          .with('xcodebuild -workspace "MegaProject.xcworkspace" -scheme "MegaProject" -configuration "Release" -showBuildSettings 2> /dev/null')
+          .with('xcodebuild -showBuildSettings -workspace "MegaProject.xcworkspace" -scheme "MegaProject" -configuration "Release" 2>&1')
           .and_return(output)
       end
 
@@ -92,7 +92,7 @@ describe XcTools::XcodeBuild do
       before(:example) do
         expect(described_class)
           .to receive(:`)
-          .with('xcodebuild -list  2>&1')
+          .with('xcodebuild -list 2>&1')
           .and_return(output)
       end
 

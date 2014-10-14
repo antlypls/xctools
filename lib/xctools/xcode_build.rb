@@ -21,12 +21,7 @@ module XcTools
     end
 
     def self.info(*args)
-      options = args.last.is_a?(Hash) ? args.pop : {}
-      cmd_args = (args + args_from_options(options)).join(' ')
-      output = `xcodebuild -list #{cmd_args} 2>&1`
-      fail Error, $1 if output =~ /^xcodebuild\: error\: (.+)$/
-      fail NilOutputError unless output =~ /\S/
-
+      output = execute_xcodebuild('-list', *args)
       info = parse_info_output(output)
       Info.new(info)
     end
@@ -65,12 +60,7 @@ module XcTools
     private_class_method :parse_info_line
 
     def self.settings(*args)
-      options = args.last.is_a?(Hash) ? args.pop : {}
-      cmd_args = (args + args_from_options(options)).join(' ')
-      output = `xcodebuild #{cmd_args} -showBuildSettings 2> /dev/null`
-      fail Error, $1 if output =~ /^xcodebuild\: error\: (.+)$/
-      fail NilOutputError unless output =~ /\S/
-
+      output = execute_xcodebuild('-showBuildSettings', *args)
       settings = parse_settings_output(output)
       Settings.new(settings)
     end
@@ -105,6 +95,17 @@ module XcTools
     def self.parse_xcode_version(output)
       $1 if output =~ /([\d+\.?]+)/
     end
+
+    def self.execute_xcodebuild(*args)
+      options = args.last.is_a?(Hash) ? args.pop : {}
+      cmd_args = (args + args_from_options(options)).join(' ')
+      output = `xcodebuild #{cmd_args} 2>&1`
+      fail Error, $1 if output =~ /^xcodebuild\: error\: (.+)$/
+      fail NilOutputError unless output =~ /\S/
+
+      output
+    end
+    private_class_method :execute_xcodebuild
 
     def self.args_from_options(options = {})
       options
