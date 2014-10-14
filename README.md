@@ -1,6 +1,9 @@
-# Xctools
+# XcTools
 
-TODO: Write a gem description
+Collection of helpers for parsing Xcode CLI tools output.
+
+This is an extract from [ognivo gem](https://github.com/antlypls/ognivo).
+Originally code is based on a [shenzhen tool](https://github.com/nomad/shenzhen).
 
 ## Installation
 
@@ -18,11 +21,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    XcTools::Agvtool.marketing_version
+
+    XcTools::XcodeBuild.info(workspace: 'Project.xcworkspace')
+
+    XcTools::XcodeBuild.settings("-workspace \"Project.xcworkspace\"")
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/xctools/fork )
+1. Fork it ( https://github.com/antlypls/xctools/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
