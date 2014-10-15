@@ -2,6 +2,7 @@
 
 [![Code Climate](http://img.shields.io/codeclimate/github/antlypls/xctools.svg?style=flat)](https://codeclimate.com/github/antlypls/xctools)
 [![Build Status](http://img.shields.io/travis/antlypls/xctools.svg?style=flat)](https://travis-ci.org/antlypls/xctools)
+[![Coverage Status](http://img.shields.io/coveralls/antlypls/xctools.svg?style=flat)](https://coveralls.io/r/antlypls/xctools)
 
 Collection of helpers for parsing Xcode CLI tools output.
 
