@@ -111,13 +111,30 @@ describe XcTools::XcodeBuild do
     end
   end
 
-  describe '.parse_xcode_version' do
+  context 'with version output' do
     let(:output) { "Xcode 5.1.1\nBuild version 5B1008\n" }
 
-    subject { described_class.parse_xcode_version(output) }
+    describe '.parse_xcode_version' do
+      subject { described_class.parse_xcode_version(output) }
 
-    it 'returns xcode version' do
-      expect(subject).to eq('5.1.1')
+      it 'returns xcode version' do
+        expect(subject).to eq('5.1.1')
+      end
+    end
+
+    describe '.version' do
+      before(:example) do
+        expect(described_class)
+          .to receive(:`)
+          .with('xcodebuild -version')
+          .and_return(output)
+      end
+
+      subject { described_class.version }
+
+      it 'returns xcode version' do
+        expect(subject).to eq('5.1.1')
+      end
     end
   end
 end
