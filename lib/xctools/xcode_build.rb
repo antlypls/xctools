@@ -110,7 +110,7 @@ module XcTools
     def self.args_from_options(options = {})
       options
         .reject { |_, value| value.nil? }
-        .map { |key, value| "-#{key} '#{value}'" }
+        .map { |key, value| "-#{key} \"#{value}\"" }
     end
     private_class_method :args_from_options
   end
