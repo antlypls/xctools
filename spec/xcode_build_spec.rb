@@ -6,26 +6,6 @@ describe XcTools::XcodeBuild do
   context 'with settings output' do
     let(:file) { File.expand_path('../fixtures/xcodebuild-settings-output.txt', __FILE__) }
 
-    describe '.parse_settings_output' do
-      subject { described_class.parse_settings_output(output) }
-
-      it 'parses' do
-        expect(subject.keys).to match_array(%w(MegaProject))
-
-        expect(subject['MegaProject'])
-          .to include('WRAPPER_NAME' => 'MegaProject.app')
-
-        expect(subject['MegaProject'])
-          .to include('CONFIGURATION' => 'Release')
-
-        expect(subject['MegaProject'])
-          .to include('BUILT_PRODUCTS_DIR' => '/Users/user/Library/Developer/Xcode/DerivedData/MegaProject-hnpshjktfnkgedbfccsjjlyytcgy/Build/Products/Release')
-
-        expect(subject['MegaProject'])
-          .to include('WRAPPER_EXTENSION' => 'app')
-      end
-    end
-
     describe '.settings' do
       before(:example) do
         expect(described_class)
@@ -92,21 +72,6 @@ describe XcTools::XcodeBuild do
 
   context 'with info output' do
     let(:file) { File.expand_path('../fixtures/xcodebuild-info-output.txt', __FILE__) }
-
-    describe '.parse_info_output' do
-      subject { described_class.parse_info_output(output) }
-
-      it 'returns parsed info' do
-        expected = {
-          :project => 'MegaProject',
-          'targets' => ['MegaProject'],
-          'build_configurations' => %w(Debug Release),
-          'schemes' => ['MegaProject']
-        }
-
-        expect(subject).to eq(expected)
-      end
-    end
 
     describe '.info' do
       before(:example) do

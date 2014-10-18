@@ -42,10 +42,12 @@ module XcTools
 
       info.merge(project: project_name)
     end
+    private_class_method :parse_info_output
 
     def self.parse_info_project_name(line)
       $1 if line =~ /\"(.+)\"\:/
     end
+    private_class_method :parse_info_project_name
 
     def self.parse_info_line(line, info, group)
       if line =~ /\:$/
@@ -72,6 +74,7 @@ module XcTools
         parse_settings_line(line, settings, target)
       end.first
     end
+    private_class_method :parse_settings_output
 
     def self.parse_settings_line(line, settings, target)
       case line
